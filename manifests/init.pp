@@ -23,6 +23,8 @@ class sssd (
   $legacy_package_names    = $sssd::params::legacy_package_names,
   $manage_authconfig       = $sssd::params::manage_authconfig,
   $authconfig_package_name = $sssd::params::authconfig_package_name,
+  $ldap_uri                = $sssd::params::ldap_uri,
+  $ldap_dn                 = $sssd::params::ldap_dn,
 
 ) inherits sssd::params {
 
@@ -33,7 +35,9 @@ class sssd (
     $disable_mkhomedir_cmd,
     $pam_mkhomedir_check,
     $idmap_package_name,
-    $authconfig_package_name
+    $authconfig_package_name,
+    $ldap_uri,
+    $ldap_dn
   )
   validate_re(
     $mkhomedir,
